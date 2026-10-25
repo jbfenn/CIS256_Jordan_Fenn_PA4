@@ -52,3 +52,48 @@ def apply_guess(word, mask, guess, attempts_left, guessed):
         return attempts_left, "correct"
 
     return attempts_left - 1, "incorrect"
+
+
+def is_solved(mask):
+    """Return True when every letter in the mask has been revealed."""
+    return "_" not in mask
+
+
+def play():
+    """Run one game: guess letters until the word is found or attempts run out."""
+    word = choose_word()
+    mask = mask_word(word)
+    attempts_left = MAX_ATTEMPTS
+    guessed = set()
+
+    print("Welcome to Guess the Word!")
+    print(" ".join(mask))
+
+    # Keep asking until the word is complete or no wrong guesses remain.
+    while attempts_left > 0 and not is_solved(mask):
+        print(f"Attempts remaining: {attempts_left}")
+        guess = input("Guess a letter: ")
+        attempts_left, status = apply_guess(
+            word, mask, guess, attempts_left, guessed
+        )
+
+        if status == "correct":
+            print("Correct!")
+        elif status == "incorrect":
+            print("Incorrect.")
+        elif status == "repeat":
+            print("You already guessed that letter.")
+        else:
+            print("Enter a single letter.")
+
+        # Show the updated word right away, including every copy of a correct letter.
+        print(" ".join(mask))
+
+    if is_solved(mask):
+        print(f"Congratulations! You guessed the word: {word}")
+    else:
+        print(f"You ran out of attempts. The word was: {word}")
+
+
+if __name__ == "__main__":
+    play()
