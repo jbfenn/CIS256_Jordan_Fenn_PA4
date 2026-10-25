@@ -14,7 +14,8 @@ def test_selected_word_comes_from_predefined_list():
 
 
 def test_correct_guess_reveals_every_matching_letter():
-    """A correct letter fills every matching position and keeps the attempt count."""
+    """A correct letter fills every matching 
+    position and keeps the attempt count."""
     word = "banana"
     mask = guess_the_word.mask_word(word)
     guessed = set()
@@ -29,7 +30,8 @@ def test_correct_guess_reveals_every_matching_letter():
 
 
 def test_incorrect_guess_costs_one_attempt():
-    """A letter that is not in the word leaves the mask blank and uses an attempt."""
+    """A letter that is not in the word leaves 
+    the mask blank and uses an attempt."""
     word = "python"
     mask = guess_the_word.mask_word(word)
     guessed = set()

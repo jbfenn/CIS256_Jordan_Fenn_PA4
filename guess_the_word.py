@@ -21,7 +21,8 @@ MAX_ATTEMPTS = 6
 
 
 def mask_word(word):
-    """Hide every letter so the player starts with a blank for each character."""
+    """Hide every letter so the player starts 
+    with a blank for each character."""
     return ["_"] * len(word)
 
 
@@ -60,7 +61,8 @@ def is_solved(mask):
 
 
 def play():
-    """Run one game: guess letters until the word is found or attempts run out."""
+    """Run one game: guess letters until the
+    word is found or attempts run out."""
     word = choose_word()
     mask = mask_word(word)
     attempts_left = MAX_ATTEMPTS
@@ -86,7 +88,8 @@ def play():
         else:
             print("Enter a single letter.")
 
-        # Show the updated word right away, including every copy of a correct letter.
+        # Show the updated word right away, including every 
+        # copy of a correct letter.
         print(" ".join(mask))
 
     if is_solved(mask):
