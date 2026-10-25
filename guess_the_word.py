@@ -21,7 +21,7 @@ MAX_ATTEMPTS = 6
 
 
 def mask_word(word):
-    """Hide every letter so the player starts 
+    """Hide every letter so the player starts
     with a blank for each character."""
     return ["_"] * len(word)
 
@@ -88,7 +88,7 @@ def play():
         else:
             print("Enter a single letter.")
 
-        # Show the updated word right away, including every 
+        # Show the updated word right away, including every
         # copy of a correct letter.
         print(" ".join(mask))
 
