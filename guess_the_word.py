@@ -71,7 +71,7 @@ def play():
 
     # Keep asking until the word is complete or no wrong guesses remain.
     while attempts_left > 0 and not is_solved(mask):
-        print(f"Attempts remaining: {attempts_left}")
+        print(f"Attempts remaining: {attempts_left}\n")
         guess = input("Guess a letter: ")
         attempts_left, status = apply_guess(
             word, mask, guess, attempts_left, guessed
